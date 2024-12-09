@@ -6,7 +6,7 @@ describe("Solflare Wallet Test", () => {
 
   it("should copy the recovery phrase correctly", async () => {
     // Open the Solflare website
-    logger.info('Opening Solflare website...');
+    logger.info("Opening Solflare website...");
     await solflarePage.open();
     logger.info(`Navigated to: ${await browser.getUrl()}`); // Log the URL after navigation
 
@@ -30,17 +30,17 @@ describe("Solflare Wallet Test", () => {
     logger.info(`Copied text: ${copiedText}`); // Log the copied text
 
     // Get text that is shown on the web
-    logger.info('Extracting recovery phrase text from paragraphs...');
+    logger.info("Extracting recovery phrase text from paragraphs...");
     const shownRecoveryPhrase = await solflarePage.getTextFromParagraphs();
-    logger.info(`Extracted text from page: ${shownRecoveryPhrase.join(' ')}`); // Log the extracted text (joined as a string)
+    logger.info(`Extracted text from page: ${shownRecoveryPhrase.join(" ")}`); // Log the extracted text (joined as a string)
 
     // Get array into string with space separator
     const stringRecoveryPhrase = shownRecoveryPhrase.join(" ");
     logger.info(`Formatted recovery phrase: ${stringRecoveryPhrase}`); // Log the string version of the recovery phrase
 
     // Assert that copied text and shown text on the web are matching
-    logger.info('Asserting that copied text matches the extracted text...');
+    logger.info("Asserting that copied text matches the extracted text...");
     expect(copiedText).toBe(stringRecoveryPhrase);
-    logger.info('Test passed: Copied text matches the extracted text.');
+    logger.info("Test passed: Copied text matches the extracted text.");
   });
 });

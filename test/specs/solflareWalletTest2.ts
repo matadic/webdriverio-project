@@ -1,6 +1,6 @@
 import { SolflarePage } from "../../pages/SolflarePage";
 import { WalletPage } from "../../pages/WalletPage";
-import logger from "../../logger/logger";  // Import logger
+import logger from "../../logger/logger"; // Import logger
 
 describe("Solflare Wallet Test2", () => {
   const solflarePage = new SolflarePage();
@@ -8,7 +8,7 @@ describe("Solflare Wallet Test2", () => {
 
   it("should create wallet and visit twitter page in new tab", async () => {
     // Open the Solflare website
-    logger.info('Opening Solflare website...');
+    logger.info("Opening Solflare website...");
     await solflarePage.open();
     logger.info(`Navigated to: ${await browser.getUrl()}`); // Log the URL after navigation
 
@@ -27,9 +27,9 @@ describe("Solflare Wallet Test2", () => {
     logger.info(`Navigated to: ${await browser.getUrl()}`); // Log the URL after clicking the button
 
     // Get text that is shown on web
-    logger.info('Extracting recovery phrase text from paragraphs...');
+    logger.info("Extracting recovery phrase text from paragraphs...");
     const shownRecoveryPhrase = await solflarePage.getTextFromParagraphs();
-    logger.info(`Extracted text from page: ${shownRecoveryPhrase.join(' ')}`); // Log the extracted text (joined as a string)
+    logger.info(`Extracted text from page: ${shownRecoveryPhrase.join(" ")}`); // Log the extracted text (joined as a string)
 
     // Get array into string with space separator
     const stringRecoveryPhrase = shownRecoveryPhrase.join(" ");
@@ -39,24 +39,24 @@ describe("Solflare Wallet Test2", () => {
     logger.info('Clicking "Continue" after saving the recovery phrase...');
     await solflarePage.clickContinueButton();
 
-
     // Enter recovery phrase
-    logger.info('Entering recovery phrase...');
+    logger.info("Entering recovery phrase...");
     await walletPage.enterRecoveryPhrase(shownRecoveryPhrase);
 
     // Continue - I entered recovery phrase
     logger.info('Clicking "Continue" after entering recovery phrase...');
     await solflarePage.clickContinueButton();
-    
 
     // Enter Password and repeat
     const randomPassword = walletPage.generateRandomPassword();
-    logger.info('Generating random password...');
+    logger.info("Generating random password...");
     await walletPage.enterPassword(randomPassword);
     await walletPage.confirmPassword(randomPassword);
 
     // Check that password is correct
-    logger.info('Verifying that the entered password matches the expected password...');
+    logger.info(
+      "Verifying that the entered password matches the expected password..."
+    );
     const enteredPassword = await walletPage.passwordInput[0].getValue();
     const confirmedPassword = await walletPage.passwordInput[1].getValue();
     expect(enteredPassword).toBe(randomPassword);
@@ -68,8 +68,8 @@ describe("Solflare Wallet Test2", () => {
     logger.info(`Navigated to: ${await browser.getUrl()}`); // Log the URL after continuing
 
     // Call the verification function for Twitter
-    const expectedTwitterUrl = 'x.com/solflare_wallet';
-    logger.info('Verifying that Twitter profile opens in a new tab...');
+    const expectedTwitterUrl = "x.com/solflare_wallet";
+    logger.info("Verifying that Twitter profile opens in a new tab...");
     await walletPage.verifyTwitterOpensInNewTab(expectedTwitterUrl);
 
     // Enter Solana - since we want the test to fail, we commented out this click
@@ -77,9 +77,9 @@ describe("Solflare Wallet Test2", () => {
     // await walletPage.clickEnterSolana();
 
     // Get Portfolio Value
-    logger.info('Waiting for portfolio value to be displayed...');
+    logger.info("Waiting for portfolio value to be displayed...");
     await walletPage.portfolioValue.waitForDisplayed();
-    logger.info('Getting portfolio value...');
+    logger.info("Getting portfolio value...");
     const valuePortfolio = await walletPage.getPortfolioValue();
     logger.info(`Portfolio value: ${valuePortfolio}`);
 

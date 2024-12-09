@@ -12,8 +12,8 @@ export class SolflarePage {
   get recoveryPhraseText() {
     return $$(".css-1362g6f");
   }
-  get continueButton(){
-    return $(".css-j38ge0")
+  get continueButton() {
+    return $(".css-j38ge0");
   }
 
   // Open Solflare homepage
@@ -65,9 +65,9 @@ export class SolflarePage {
     // Return the array of extracted text
     return textArray;
   }
-  
+
   // Continue Button
-  async clickContinueButton(){
+  async clickContinueButton() {
     await this.continueButton.waitForExist({ timeout: 5000 });
     await this.continueButton.click();
   }
