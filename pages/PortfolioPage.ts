@@ -66,10 +66,12 @@ export class PortfolioPage {
 
   async seeSecndWallet() {
     await this.walletscnd.waitForDisplayed();
-    await this.walletscnd.getText();
+    const scndText = await this.walletscnd.getText();
+    expect(scndText).toBe("Wallet 2")
   }
   async seeThridWallet() {
     await this.walletThird.waitForDisplayed();
-    await this.walletThird.getText();
+    const thirdText = await this.walletThird.getText();
+    expect(thirdText).toBe("Wallet 3")
   }
 }

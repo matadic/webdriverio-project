@@ -31,10 +31,6 @@ describe("Solflare Wallet Test2", () => {
     const shownRecoveryPhrase = await solflarePage.getTextFromParagraphs();
     logger.info(`Extracted text from page: ${shownRecoveryPhrase.join(" ")}`); // Log the extracted text (joined as a string)
 
-    // Get array into string with space separator
-    const stringRecoveryPhrase = shownRecoveryPhrase.join(" ");
-    logger.info(`Formatted recovery phrase: ${stringRecoveryPhrase}`); // Log the formatted recovery phrase
-
     // Continue - I saved my recovery phrase
     logger.info('Clicking "Continue" after saving the recovery phrase...');
     await solflarePage.clickContinueButton();
