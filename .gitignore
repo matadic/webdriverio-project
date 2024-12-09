@@ -1,0 +1,32 @@
+# Node.js
+node_modules/
+
+# Logs
+logs/
+
+# WebDriverIO's default reporting folder
+wdio-reports/
+
+# Test reports, videos, screenshots
+test-report/
+screenshots/
+videos/
+
+# IDE configuration files (optional, based on your editor)
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store           # macOS
+Thumbs.db           # Windows
+
+# npm package lock file (optional, but good practice for consistency)
+package-lock.json
+yarn.lock
+
+# Temporary files (optional)
+*.log
+*.tmp
+*.bak
+
+
